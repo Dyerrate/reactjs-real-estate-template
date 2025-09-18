@@ -4,6 +4,8 @@
 
 - **Check Live:** https://primeview-realestate.vercel.app/
 
+[Example single listing](https://www.har.com/homedetail/11570-bellspring-dr-houston-tx-77072/8486436?lid=10204139)
+
 ## Features
 
 - **User-Friendly Interface**
