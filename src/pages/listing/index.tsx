@@ -18,7 +18,7 @@ export default function Listings() {
         <div className="flex flex-wrap justify-center">
           {filteredProperties.length === 0 ? (
             <p className="text-center text-gray-500 text-lg py-12">
-              Sorry ! We don't have any house or flat that matches your
+              Sorry ! We don&apos;t have any house or flat that matches your
               preferences.
             </p>
           ) : (
