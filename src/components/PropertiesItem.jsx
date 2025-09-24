@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const PropertiesItem = (props) => {
-    // eslint-disable-next-line react/prop-types
     const { id, propertyName, priceInLakhs, bedrooms, price, bathrooms, location, imageURL } = props;
 
     return (

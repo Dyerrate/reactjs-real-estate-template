@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { NavLink } from "react-router-dom"
+import { Link } from "next/link"
 const Header = () => {
 
     const [openSidebar, setOpenSidebar] = useState(false)
@@ -23,10 +23,10 @@ const Header = () => {
                             </div>
                             <ul className="md:flex flex-wrap items-center text-base justify-center md:mt-0 mt-6">
                                 <li className="md:mt-0 mt-4">
-                                    <NavLink to="/" className="active md:mx-6 hover:text-indigo-500" onClick={() => setOpenSidebar(false)}>Home</NavLink>
+                                    <Link to="/" className="active md:mx-6 hover:text-indigo-500" onClick={() => setOpenSidebar(false)}>Home</Link>
                                 </li>
                                 <li className="md:mt-0 mt-4">
-                                    <NavLink to="/properties" className="md:mx-6 hover:text-indigo-500" onClick={() => setOpenSidebar(false)}>All Property</NavLink>
+                                    <Link to="/properties" className="md:mx-6 hover:text-indigo-500" onClick={() => setOpenSidebar(false)}>All Property</Link>
                                 </li>
                             </ul>
                         </nav>
