@@ -1,7 +1,7 @@
-import PropertiesItem from "./PropertiesItem";
 import Link from "next/link";
-import { AppContext } from "./RealEstateContext";
 import { useContext } from "react";
+import PropertiesItem from "./PropertiesItem";
+import { AppContext } from "./RealEstateContext";
 
 export const FeaturedProperty = () => {
   const { propertydata } = useContext(AppContext);

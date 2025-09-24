@@ -1,7 +1,7 @@
 import { useState, createContext, ReactNode } from "react";
 import propertydata from "./Data";
 
-type ContextType = {
+export type ContextType = {
   propertydata: {
     id: number;
     propertyName: string;
@@ -34,10 +34,11 @@ type ContextType = {
 
 export const AppContext = createContext<ContextType>(null);
 
-const cities = [...new Set(propertydata.map((curCity) => curCity.location))];
-const bedRooms = [...new Set(propertydata.map((curBdrm) => curBdrm.bedrooms))];
-
 export const AppProvider = ({ children }: { children: ReactNode }) => {
+  const cities = [...new Set(propertydata.map((curCity) => curCity.location))];
+  const bedRooms = [
+    ...new Set(propertydata.map((curBdrm) => curBdrm.bedrooms)),
+  ];
   const [selectedFilter, setSelectedFilter] = useState({
     price: "",
     city: "",
