@@ -76,11 +76,7 @@ export default function SingleListing() {
 
       <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2">
         <button className="bg-white inline-flex justify-center text-indigo-500 border-indigo-500 border py-2 px-6 outline-none hover:bg-indigo-200 rounded text-md">
-          <Link
-            to="/properties
-          "
-            className="text-center"
-          >
+          <Link href="/properties" className="text-center">
             Go Back
           </Link>
         </button>

@@ -31,7 +31,7 @@ const Property = () => {
           </div>
           <div className="flex justify-center mt-4">
             <Link
-              to="/properties"
+              href="/properties"
               className="text-blue-500 underline hover:text-blue-700"
             >
               Browse more properties
