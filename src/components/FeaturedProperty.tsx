@@ -1,9 +1,9 @@
 import PropertiesItem from "./PropertiesItem";
-import { Link } from "next/link";
+import Link from "next/link";
 import { AppContext } from "./RealEstateContext";
 import { useContext } from "react";
 
-const Property = () => {
+export const FeaturedProperty = () => {
   const { propertydata } = useContext(AppContext);
   return (
     <section className="text-gray-600 body-font bg-slate-50">
@@ -40,5 +40,3 @@ const Property = () => {
     </section>
   );
 };
-
-export default Property;

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const Hero = () => {
+export const Hero = () => {
   return (
     <>
       <section className="text-gray-600 body-font max-w-7xl m-auto px-4">
@@ -37,5 +37,3 @@ const Hero = () => {
     </>
   );
 };
-
-export default Hero;
