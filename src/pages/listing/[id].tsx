@@ -1,15 +1,15 @@
 import { AppContext } from "@/components/RealEstateContext";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useRouter } from "next/router";
 import { useContext } from "react";
 
 export default function SingleListing() {
-  const { id } = useParams();
+  const router = useRouter();
   const { propertydata } = useContext(AppContext);
 
   // To get Single property details onclick
   const selectedProperty = propertydata.find(
-    (property) => property.id === parseInt(id)
+    (property) => property.id === parseInt(router.query.id as string)
   );
 
   if (!selectedProperty) {
