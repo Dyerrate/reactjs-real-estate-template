@@ -10,11 +10,12 @@ import {
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 export default function SingleListing() {
   const router = useRouter();
   const { propertydata } = useContext(AppContext);
+  const [started, setStarted] = useState(false);
 
   // To get Single property details onclick
   const selectedProperty = propertydata.find(
@@ -87,13 +88,27 @@ export default function SingleListing() {
           >
             <Button
               colorScheme="purple"
-              onClick={() => alert("Trigger VR Experience")}
+              onClick={() => {
+                if (started) {
+                  alert("Ending VR Experience");
+                  setStarted(false);
+                } else {
+                  alert("Starting VR Experience");
+                  setStarted(true);
+                }
+              }}
               textAlign="center"
               justifySelf="center"
             >
-              Augmented Walkthrough
+              {`${started ? "End" : "Start"} Augmented Walkthrough`}
             </Button>
           </Box>
+
+          {started && (
+            <Box h="2xl" w="2xl" m="auto">
+              <p className="text-center">Testing 123</p>
+            </Box>
+          )}
 
           {/* Property Info */}
           <div className="flex flex-col mt-10">
