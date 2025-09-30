@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { AppContext } from "@/components/RealEstateContext";
+import { VRViewer } from "@/components/VRViewer";
 import {
   Card,
   CardHeader,
@@ -105,9 +106,7 @@ export default function SingleListing() {
           </Box>
 
           {started && (
-            <Box h="2xl" w="2xl" m="auto">
-              <p className="text-center">Testing 123</p>
-            </Box>
+            <VRViewer />
           )}
 
           {/* Property Info */}
