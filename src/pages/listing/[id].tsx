@@ -1,4 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import { AppContext } from "@/components/RealEstateContext";
+import { Button, Card, CardBody, CardHeader } from "@heroui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useContext } from "react";
@@ -32,10 +34,13 @@ export default function SingleListing() {
     bathrooms,
   } = selectedProperty;
 
+  const lowerImages = [imageURL, imageURL];
+
   return (
     <>
-      <div className="container px-5 py-12 mx-auto">
+      <div className="container px-5 py-12">
         <div className="lg:w-1/2 md:w-2/3 mx-auto">
+          {/* top image */}
           <div className="overflow-hidden rounded-lg">
             <img
               alt={propertyName}
@@ -43,6 +48,42 @@ export default function SingleListing() {
               src={imageURL}
             />
           </div>
+
+          <div className="w-full">
+            {/* listing image card container */}
+            <div className="flex overflow-y-hidden py-10 gap-5 w-3xl">
+              {/* other listing images */}
+              {lowerImages.map((img, idx) => (
+                <Card key={idx} className="w-full mx-3">
+                  <CardHeader className="w-full">
+                    <div className="overflow-hidden rounded-lg mx-auto">
+                      <img
+                        alt={propertyName}
+                        className="object-cover object-center md:h-48 h-32 border"
+                        src={img}
+                      />
+                    </div>
+                  </CardHeader>
+                  <CardBody className="w-full">
+                    <p className="text-center">Listing Image {idx + 1}</p>
+                  </CardBody>
+                </Card>
+              ))}
+            </div>
+
+            {/* VR Experience Trigger */}
+            <div className="flex overflow-x-auto overflow-y-hidden py-10 gap-5 w-full">
+              <Button
+                className="mx-auto"
+                color="primary"
+                onPress={() => alert("Trigger VR Experience")}
+              >
+                Augmented Walkthrough
+              </Button>
+            </div>
+          </div>
+
+          {/* Property Info */}
           <div className="flex flex-col mt-10">
             <h2 className="text-2xl text-gray-900 font-medium title-font mb-4">
               {propertyName}
@@ -74,6 +115,7 @@ export default function SingleListing() {
         </div>
       </div>
 
+      {/* Back Button */}
       <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2">
         <button className="bg-white inline-flex justify-center text-indigo-500 border-indigo-500 border py-2 px-6 outline-none hover:bg-indigo-200 rounded text-md">
           <Link href="/listing" className="text-center">
