@@ -1,15 +1,15 @@
 import { AppProvider } from "@/components/RealEstateContext";
-import { HeroUIProvider } from "@heroui/react";
+import { ChakraProvider } from "@chakra-ui/react";
 import type { AppProps } from "next/app";
 
 import "@/styles/globals.css";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <HeroUIProvider>
+    <ChakraProvider>
       <AppProvider>
         <Component {...pageProps} />
       </AppProvider>
-    </HeroUIProvider>
+    </ChakraProvider>
   );
 }

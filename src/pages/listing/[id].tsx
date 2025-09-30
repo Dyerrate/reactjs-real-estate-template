@@ -1,6 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import { AppContext } from "@/components/RealEstateContext";
-import { Button, Card, CardBody, CardHeader } from "@heroui/react";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  Button,
+  HStack,
+  Box,
+} from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useContext } from "react";
@@ -49,39 +56,44 @@ export default function SingleListing() {
             />
           </div>
 
-          <div className="w-full">
-            {/* listing image card container */}
-            <div className="flex overflow-y-hidden py-10 gap-5 w-3xl">
-              {/* other listing images */}
-              {lowerImages.map((img, idx) => (
-                <Card key={idx} className="w-full mx-3">
-                  <CardHeader className="w-full">
-                    <div className="overflow-hidden rounded-lg mx-auto">
-                      <img
-                        alt={propertyName}
-                        className="object-cover object-center md:h-48 h-32 border"
-                        src={img}
-                      />
-                    </div>
-                  </CardHeader>
-                  <CardBody className="w-full">
-                    <p className="text-center">Listing Image {idx + 1}</p>
-                  </CardBody>
-                </Card>
-              ))}
-            </div>
+          {/* listing image card container */}
+          <HStack overflowX="auto">
+            {/* other listing images */}
+            {lowerImages.map((img, idx) => (
+              <Card key={idx} className="w-full mx-3">
+                <CardHeader>
+                  <div className="overflow-hidden rounded-lg">
+                    <img
+                      alt={propertyName}
+                      className="object-cover object-center md:h-48 h-32 border"
+                      src={img}
+                    />
+                  </div>
+                </CardHeader>
+                <CardBody className="w-full">
+                  <p className="text-center">Listing Image {idx + 1}</p>
+                </CardBody>
+              </Card>
+            ))}
+          </HStack>
 
-            {/* VR Experience Trigger */}
-            <div className="flex overflow-x-auto overflow-y-hidden py-10 gap-5 w-full">
-              <Button
-                className="mx-auto"
-                color="primary"
-                onPress={() => alert("Trigger VR Experience")}
-              >
-                Augmented Walkthrough
-              </Button>
-            </div>
-          </div>
+          {/* VR Experience Trigger */}
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            width="100%"
+            my={5}
+          >
+            <Button
+              colorScheme="purple"
+              onClick={() => alert("Trigger VR Experience")}
+              textAlign="center"
+              justifySelf="center"
+            >
+              Augmented Walkthrough
+            </Button>
+          </Box>
 
           {/* Property Info */}
           <div className="flex flex-col mt-10">
