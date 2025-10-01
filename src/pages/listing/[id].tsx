@@ -91,10 +91,10 @@ export default function SingleListing() {
               colorScheme="purple"
               onClick={() => {
                 if (started) {
-                  alert("Ending VR Experience");
+                  // alert("Ending VR Experience");
                   setStarted(false);
                 } else {
-                  alert("Starting VR Experience");
+                  // alert("Starting VR Experience");
                   setStarted(true);
                 }
               }}
