@@ -78,13 +78,14 @@ export default function SingleListing() {
             alignItems="center"
             justifyContent="center"
             width="100%"
+            gap={4}
             my={5}
           >
             <Button
               colorScheme="purple"
               onClick={() => {
                 popupRef.current = window.open(
-                  "/listing/view",
+                  "/listing/view1",
                   "_blank",
                   "popup=yes"
                 );
@@ -92,7 +93,21 @@ export default function SingleListing() {
               textAlign="center"
               justifySelf="center"
             >
-              Start Augmented Walkthrough
+              Start Augmented Walkthrough 1
+            </Button>
+            <Button
+              colorScheme="purple"
+              onClick={() => {
+                popupRef.current = window.open(
+                  "/listing/view2",
+                  "_blank",
+                  "popup=yes"
+                );
+              }}
+              textAlign="center"
+              justifySelf="center"
+            >
+              Start Augmented Walkthrough 2
             </Button>
           </Box>
 

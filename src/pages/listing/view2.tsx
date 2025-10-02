@@ -1,8 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import ReactPlayer from "react-player";
 
-export default function View() {
-  const rand = Math.random();
+export default function View1() {
   return (
     <Box h="100vh" className="overflow-clip">
       <ReactPlayer
@@ -13,7 +12,7 @@ export default function View() {
         width="100%"
         height="auto"
         loop
-        src={`/assets/${rand > 0.5 ? "1" : "2"}.mp4`}
+        src={`/assets/2.mp4`}
       />
     </Box>
   );
