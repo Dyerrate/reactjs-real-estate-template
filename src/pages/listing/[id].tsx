@@ -1,22 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import { AppContext } from "@/components/RealEstateContext";
-import { VRViewer } from "@/components/VRViewer";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  Button,
-  HStack,
-  Box,
-} from "@chakra-ui/react";
+import { Box, Button, HStack } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useContext, useState } from "react";
+import { useContext, useRef } from "react";
 
 export default function SingleListing() {
   const router = useRouter();
   const { propertydata } = useContext(AppContext);
-  const [started, setStarted] = useState(false);
+  const popupRef = useRef<Window | null>(null);
 
   // To get Single property details onclick
   const selectedProperty = propertydata.find(
@@ -27,7 +19,8 @@ export default function SingleListing() {
     return (
       <div>
         <p className="text-center text-gray-500 text-lg py-12">
-          Sorry ! We don't have any house or flat that matches your preferences.
+          Sorry ! We don&apos;t have any house or flat that matches your
+          preferences.
         </p>
       </div>
     );
@@ -47,7 +40,7 @@ export default function SingleListing() {
 
   return (
     <>
-      <div className="container px-5 py-12">
+      <div className="container px-5 py-12 mx-auto">
         <div className="lg:w-1/2 md:w-2/3 mx-auto">
           {/* top image */}
           <div className="overflow-hidden rounded-lg">
@@ -59,9 +52,9 @@ export default function SingleListing() {
           </div>
 
           {/* listing image card container */}
-          <HStack overflowX="auto">
+          <HStack overflowX="auto" mx="auto">
             {/* other listing images */}
-            {lowerImages.map((img, idx) => (
+            {/* {lowerImages.map((img, idx) => (
               <Card key={idx} className="w-full mx-3">
                 <CardHeader>
                   <div className="overflow-hidden rounded-lg">
@@ -76,7 +69,7 @@ export default function SingleListing() {
                   <p className="text-center">Listing Image {idx + 1}</p>
                 </CardBody>
               </Card>
-            ))}
+            ))} */}
           </HStack>
 
           {/* VR Experience Trigger */}
@@ -90,24 +83,18 @@ export default function SingleListing() {
             <Button
               colorScheme="purple"
               onClick={() => {
-                if (started) {
-                  // alert("Ending VR Experience");
-                  setStarted(false);
-                } else {
-                  // alert("Starting VR Experience");
-                  setStarted(true);
-                }
+                popupRef.current = window.open(
+                  "/listing/view",
+                  "_blank",
+                  "popup=yes"
+                );
               }}
               textAlign="center"
               justifySelf="center"
             >
-              {`${started ? "End" : "Start"} Augmented Walkthrough`}
+              Start Augmented Walkthrough
             </Button>
           </Box>
-
-          {started && (
-            <VRViewer />
-          )}
 
           {/* Property Info */}
           <div className="flex flex-col mt-10">
